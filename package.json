@@ -1,0 +1,24 @@
+{
+  "name": "tf-wotmud",
+  "version": "0.1.0",
+  "description": "TinyFugue macros for WoTMUD (wotmud.org)",
+  "main": "main.tf",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/huntwj/tf-wotmud.git"
+  },
+  "keywords": [
+    "tf",
+    "wotmud",
+    "TinyFugue"
+  ],
+  "author": "Wil Hunt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huntwj/tf-wotmud/issues"
+  },
+  "homepage": "https://github.com/huntwj/tf-wotmud#readme"
+}
