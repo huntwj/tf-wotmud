@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/huntwj/tf-wotmud/issues"
   },
-  "homepage": "https://github.com/huntwj/tf-wotmud#readme"
+  "homepage": "https://github.com/huntwj/tf-wotmud#readme",
+  "dependencies": {
+      "tf-diku": "git://github.com/huntwj/tf-diku.git"
+  }
 }
