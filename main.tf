@@ -1,5 +1,6 @@
 /require tf-diku/main.tf
 
-; Proof of concept function.
-/def wotCmd = \
-    'this is a cool wot command.
+/require tf-wotmud/prompt.tf
+
+/addworld -Tdiku WoTMUD game.wotmud.org 2224
+
