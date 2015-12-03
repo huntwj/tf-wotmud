@@ -1,11 +1,7 @@
 ;;
 ;; WoTMUD Prompt Triggers and Variables
 ;;
-
-/def setvar = \
-    /let _varName=var_$[textencode({1})]%;\
-;    /echo %{_varName} := %{2}%;\
-    /test %{_varName} := {2}
+/loaded __tf_wotmud_prompt__
 
 /test wot_health_states := "Healthy|Scratched|Hurt|Wounded|Battered|Beaten|Critical|Incapacitated"
 /test wot_movement_states := "Full|Fresh|Strong|Tiring|Winded|Weary|Haggard"
@@ -23,13 +19,13 @@
     /let _tankHealth=%{P9}%;\
     /let _targetDesc=%{P10}%;\
     /let _targetHealth=%{P11}%;\
-    /test setvar("char.health", {_charHealth})%;\
-    /test setvar("char.power", {_charPower})%;\
-    /test setvar("char.moves", {_charMoves})%;\
-    /test setvar("combat.tank.desc", _tankDesc)%;\
-    /test setvar("combat.tank.health", _tankHealth)%;\
-    /test setvar("combat.target.desc", {_targetDesc})%;\
-    /test setvar("combat.target.health", {_targetHealth})%;\
+    /test util_setVar("char.health", {_charHealth})%;\
+    /test util_setVar("char.power", {_charPower})%;\
+    /test util_setVar("char.moves", {_charMoves})%;\
+    /test util_setVar("combat.tank.desc", _tankDesc)%;\
+    /test util_setVar("combat.tank.health", _tankHealth)%;\
+    /test util_setVar("combat.target.desc", {_targetDesc})%;\
+    /test util_setVar("combat.target.health", {_targetHealth})%;\
     /let _prefix=>%;\
     /if (_tankDesc !~ "") \
         /test _prefix := "T"%;\
