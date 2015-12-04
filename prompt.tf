@@ -5,7 +5,7 @@
 
 /test wot_health_states := "Healthy|Scratched|Hurt|Wounded|Battered|Beaten|Critical|Incapacitated"
 /test wot_movement_states := "Full|Fresh|Strong|Tiring|Winded|Weary|Haggard"
-/test wot_spell_states := "Bursting|Full|Strong|Trickling"
+/test wot_spell_states := "Bursting|Full|Strong|Good|Fading|Trickling"
 
 /eval /def -mregexp -h'PROMPT ^([*o] HP:(%{wot_health_states})( SP:(%{wot_spell_states}))? MV:(%{wot_movement_states})(( - (.*): (%{wot_health_states}))? - (.*): (%{wot_health_states}))? > )' wot_prompt_trigger = \
     /wot_do_prompt
