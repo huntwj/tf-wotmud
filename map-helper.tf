@@ -5,7 +5,7 @@
 
 /require tf-mapper/main.tf
 
-/test mapper_mapFile := strcat(TF_NPM_MODULES_ROOT, "/tf-wotmud/map.sqlite")
+/test mapper_mapFile := strcat(TF_NPM_ROOT, "/data/map.sqlite")
 
 /def -mregexp -t"^\[ obvious exits:( N)?( E)?( S)?( W)?( U)?( D)? \]$" wotmud_t_detectExits = \
     /let _maxLines=10%;\
