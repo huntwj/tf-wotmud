@@ -16,7 +16,7 @@
 /def -Evar_user_capturing_46_score -mregexp -t"^You have played \d+ days and \d+ hours \(real time\)\.$" wot_score_capturecePlayedTime = \
     /test 1
 
-/def -Evar_user_capturing_46_score -mregexp -t"^This ranks you as (\w+) of (Illian) \(Level (\d+)\)\.$" wot_score_captureRankAndLevel = \
+/def -Evar_user_capturing_46_score -mregexp -t"^This ranks you as (\w+) of (Illian|the Borderlands|Tarabon) \(Level (\d+)\)\.$" wot_score_captureRankAndLevel = \
     /let _name=%{P1}%;\
     /let _homeland=%{P2}%;\
     /let _level=%{P3}%;\
@@ -33,5 +33,5 @@
     /util_setVar capturing.score 0
 
 /def -Evar_user_capturing_46_score -p0 -mregexp -t"^.*$" wot_score_captureUnknown = \
-    /echo Unknown score line. Please address this.
+    /echo -aCred Unknown score line. Please address this.
 
