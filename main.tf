@@ -7,3 +7,9 @@
 
 /addworld -Tdiku WoTMUD game.wotmud.org 2224
 
+/def -mregexp -t"^You are hungry\.$" wot_t_hungry = \
+    /test 1
+
+/def -mregexp -t"^You are thirsty\.$" wot_t_thirsty = \
+    /test 1
+
