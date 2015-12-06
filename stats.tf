@@ -3,8 +3,12 @@
 ;;
 /loaded __tf_wotmud_stats__
 
-/def -mregexp -t"You are a \d+ year old (male|female) (human) (rogue)\.$" wot_stats_beginCapture = \
+/def -mregexp -t"You are a \d+ year old (male|female) (human) (rogue|hunter|warrior|channeler)\.$" wot_stats_beginCapture = \
+    /let _sex=%{P1}%;\
+    /let _class=%{P3}%;\
     /echo Beginning stats capture%;\
+    /util_setVar char.sex %{_sex}%;\
+    /util_setVar char.class %{_class}%;\
     /util_setVar capturing.stats 1
 
 /def -Evar_user_capturing_46_stats -mregexp -t"^Your height is \d+ feet, \d+ inches, and you weigh \d+\.\d+ lbs\.$" wot_stats_captureVitals = \
