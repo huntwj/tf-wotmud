@@ -7,7 +7,7 @@
     /echo Beginning score capture%;\
     /util_setVar capturing.score 1
 
-/def -Evar_user_capturing_46_score -mregexp -t"^You have scored \d+ experience points and \d+ quest points\.$" wot_score_captureExp = \
+/def -Evar_user_capturing_46_score -mregexp -t"^You have scored \d+ experience point(s)? and \d+ quest points\.$" wot_score_captureExp = \
     /test 1
 
 /def -Evar_user_capturing_46_score -mregexp -t"^You need \d+ exp to reach the next level\.$" wot_score_captureTnl = \
@@ -34,4 +34,10 @@
 
 /def -Evar_user_capturing_46_score -p0 -mregexp -t"^.*$" wot_score_captureUnknown = \
     /echo -aCred Unknown score line. Please address this.
+
+/def -mregexp -t"^You (raise|gain) a level!$" wot_score_t_levelUp = \
+    /let _prev=$[util_getVar("char.level")]%;\
+    /let _now=$[_prev + 1]%;\
+    /test util_setVar("char.level", _now)%;\
+    /echo %{P0} (%{_prev} -> %{_now})
 
