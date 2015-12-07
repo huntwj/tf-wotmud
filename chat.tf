@@ -11,7 +11,7 @@
         /test isLimited := 0%;\
     /else \
         /let _success=%;\
-        /test _success := limit("-mregexp (tells you|chats|yells|speaks from the light|says|narrates)")%;\
+        /test _success := limit("-mregexp (tells you|chats|yells|speaks from the light|says|narrates|bellows)")%;\
         /test isLimited := _success%;\
     /endif
 
