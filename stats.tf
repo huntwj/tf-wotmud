@@ -5,7 +5,7 @@
 
 /require tf-util/events.tf
 
-/def -mregexp -t"You are a \d+ year old (male|female) (human) (rogue|hunter|warrior|channeler)\.( It's your birthday today!)?$" wot_stats_beginCapture = \
+/def -mregexp -t"You are a \d+ year old (male|female) (human) (rogue|hunter|warrior|channeler)\.(  It's your birthday today!)?$" wot_stats_beginCapture = \
     /let _sex=%{P1}%;\
     /let _class=%{P3}%;\
     /echo Beginning stats capture%;\
@@ -16,7 +16,7 @@
 /def -Evar_user_capturing_46_stats -mregexp -t"^Your height is \d+ feet, \d+ inches, and you weigh \d+\.\d+ lbs\.$" wot_stats_captureVitals = \
     /test 1
 
-/def -Evar_user_capturing_46_stats -mregexp -t"^You are carrying \d+\.\d+ lbs and wearing \d+\.\d+ lbs, (very light|fairly light|light|peanuts)\.$" wot_stats_captureLoad = \
+/def -Evar_user_capturing_46_stats -mregexp -t"^You are carrying \d+\.\d+ lbs and wearing \d+\.\d+ lbs, (very light|fairly light|light|peanuts|somewhat heavy)\.$" wot_stats_captureLoad = \
     /test 1
 
 /def -Evar_user_capturing_46_stats -ag -mregexp -t"^Your base abilities are: Str:(\d+) Int:(\d+) Wil:(\d+) Dex:(\d+) Con:(\d+)\.$" wot_stats_captureStats = \
@@ -43,7 +43,7 @@
 /def -Evar_user_capturing_46_stats -mregexp -t"^Offensive bonus: \d+, Dodging bonus: \d+, Parrying bonus: \d+$" wot_stats_captureObDbPb = \
     /test 1
 
-/def -Evar_user_capturing_46_stats -mregexp -t"^Your mood is: (Wimpy|Brave|Berserk)\. You will flee below: \d+ Hit Points$" wot_stats_captureFleeMood = \
+/def -Evar_user_capturing_46_stats -mregexp -t"^Your mood is: (Wimpy|Brave|Berserk|Normal)\. You will flee below: \d+ Hit Points$" wot_stats_captureFleeMood = \
     /test 1
 
 /def -Evar_user_capturing_46_stats -mregexp -t"^Your armor absorbs about\s+\d+% on average\.$" wot__stats_captureAbs = \
