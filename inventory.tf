@@ -10,15 +10,34 @@
     gc light%;\
     hold light
 
+/declareVar inv.food meat
+/alias food /wot_setFood %{*}
+/def wot_setFood = \
+    /if ({#}) \
+        /test setVar("inv.food", {1})%;\
+    /endif%;\
+    /echo Default food is: $[getVar("inv.food")]
+
+/def -F -mregexp -t"^You are hungry\.$" wot_t_hungry = \
+    /wot_eatFood
+
+/def wot_eatFood = \
+    gc $[getVar("inv.food")]%;\
+    eat $[getVar("inv.food")]
+
+/def -F -mregexp -t"^You are thirsty\.$" wot_t_thirsty = \
+    /dws%;\
+    look in $[wot_getWaterContainer()]%;\
+
 /alias water /wot_setWaterContainer %{*}
 /def wot_setWaterContainer = \
     /if ({#}) \
-        /test util_setVar('inv.container.water', {1})%;\
+        /test setVar('inv.container.water', {1})%;\
     /endif%;\
     /echo Water container is now [$[wot_getWaterContainer()]]
 
 /def wot_getWaterContainer = \
-    /let _container=$[util_getVar('inv.container.water')]%;\
+    /let _container=$[getVar('inv.container.water')]%;\
     /if (_container =~ "") \
         /test _container := "waterskin"%;\
     /endif%;\
@@ -46,58 +65,62 @@
     /repeat -S 2 drink %{_container}%;\
     wear %{_container}
 
-/set wot_inv_primaryWeapon=dagger
-/set wot_inv_primarySheaths=0
+/declareVar inv.weapon staff
+/declareVar inv.weapon.sheaths 0
 /alias weapon /wot_inv_setWeapon %{*}
 /def wot_inv_setWeapon = \
     /if ({#}) \
-        /set wot_inv_primaryWeapon=%{1}%;\
+        /test setVar("inv.weapon", {1})%;\
     /endif%;\
-    /echo Weapon is set to '%{wot_inv_primaryWeapon}'
+    /echo Weapon is set to <$[getVar("inv.weapon")]>
 
-/set wot_inv_utilityWeapon=dagger
-/set wot_inv_utilitySheaths=0
+/declareVar inv.utility dagger
+/declareVar inv.utility.sheaths 1
 
 /def wot_inv_wieldPrimary = \
-    /if (wot_inv_primaryWeapon =~ "dagger") \
+    /let _weapon=$[getVar("inv.weapon")]%;\
+    /if (_weapon =~ "dagger") \
         /return%;\
     /endif%;\
-    /if (wot_inv_primarySheaths) \
-        draw %{wot_inv_primaryWeapon}%;\
+    /if (getVar("inv.weapon.sheaths")) \
+        draw %{_weapon}%;\
     /else \
-        wield %{wot_inv_primaryWeapon}%;\
+        wield %{_weapon}%;\
     /endif
 
 /def wot_inv_removePrimary = \
-    /if (wot_inv_primaryWeapon =~ "dagger") \
+    /let _weapon=$[getVar("inv.weapon")]%;\
+    /if (_weapon =~ "dagger") \
         /return%;\
     /endif%;\
-    /if (wot_inv_primarySheaths) \
+    /if (getVar("inv.weapon.sheaths")) \
         sheath%;\
     /else \
-        rem %{wot_inv_primaryWeapon}%;\
+        rem %{_weapon}%;\
     /endif
 
 /def wot_inv_wieldUtility = \
-    /if (wot_inv_primaryWeapon =~ "dagger") \
+    /let _utility=$[getVar("inv.utility")]%;\
+    /if (getVar("inv.weapon") =~ "dagger") \
         /return%;\
     /endif%;\
-    /if (wot_inv_utilitySheaths) \
-        draw %{wot_inv_utilityWeapon}%;\
+    /if (getVar("inv.utility.sheaths")) \
+        draw %{_utility}%;\
     /else \
-        gc %{wot_inv_utilityWeapon}%;\
-        wield %{wot_inv_utilityWeapon}%;\
+        gc %{_utility}%;\
+        wield %{_utility}%;\
     /endif
 
 /def wot_inv_removeUtility = \
-    /if (wot_inv_primaryWeapon =~ "dagger") \
+    /if (getVar("inv.weapon") =~ "dagger") \
         /return%;\
     /endif%;\
-    /if (wot_inv_utilitySheaths) \
+    /if (getVar("inv.utility.sheaths")) \
         sheath%;\
     /else \
-        rem %{wot_inv_utilityWeapon}%;\
-        pc %{wot_inv_utilityWeapon}%;\
+        /let _utility=$[getVar("inv.utility")]%;\
+        rem %{_utility}%;\
+        pc %{_utility}%;\
     /endif
 
 /def sc = \

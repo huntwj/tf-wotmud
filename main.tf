@@ -12,22 +12,16 @@
 
 /addworld -Tdiku WoTMUD game.wotmud.org 2224
 
-/set wot_inv_food=meat
 
-/alias food /wot_food %{*}
-/def wot_food = \
+/def reconnect = \
     /if ({#}) \
-	/set wot_inv_food=%{1}%;\
-    /endif%;\
-    /echo Default food is: %{wot_inv_food}
+	/for i 15 1 /repeat -$[i*60] 1 /echo %%i minutes to connect...%;\
+	/repeat -900 1 /echo /connect%;\
+    /else \
+	/for i 5 1 /repeat -$[i*60] 1 /echo %%i minutes to connect...%;\
+	/repeat -300 1 /echo /connect%;\
+    /endif
 
-/def -F -mregexp -t"^You are hungry\.$" wot_t_hungry = \
-    gc %{wot_inv_food}%;\
-    eat %{wot_inv_food}%;\
-    /test 1
-
-/def -F -mregexp -t"^You are thirsty\.$" wot_t_thirsty = \
-    /dws%;\
-    look in $[util_getVar("inv.container.water")]%;\
-    /test 1
+/def wot = \
+    /load tf-wotmud/main.tf
 
