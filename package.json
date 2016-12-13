@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/huntwj/tf-wotmud#readme",
   "dependencies": {
-    "tf-diku": "git://github.com/huntwj/tf-diku.git",
-    "tf-mapper": "git://github.com/huntwj/tf-mapper.git"
+    "tf-diku": "~1.0.0",
+    "tf-mapper": "~1.0.0"
   }
 }
