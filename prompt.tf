@@ -37,6 +37,7 @@
     /if (_tankDesc !~ "") \
         /test _prefix := "T"%;\
     /elseif (_targetDesc !~ "") \
+        /event_fire combat_detected%;\
         /test _prefix := "C"%;\
     /endif%;\
     /test util_setVar("mending", 0)%;\

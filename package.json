@@ -2,7 +2,7 @@
   "name": "tf-wotmud",
   "version": "0.1.0",
   "description": "TinyFugue macros for WoTMUD (wotmud.org)",
-  "main": "main.tf",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

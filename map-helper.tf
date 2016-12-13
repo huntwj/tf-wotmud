@@ -41,7 +41,8 @@
 
 /def -Emap_capturingItemsAndMobs -mregexp -t"^$" -pmaxpri -F wotmud_t_doneDetectingItemsAndMobs = \
     /test map_capturingItemsAndMobs := 0%;\
-    /event_fire wot_map_doneDetectingItemsAndMobs %{map_unknownMobCunt}
+    /event_fire wot_map_doneDetectingItemsAndMobs %{map_unknownMobCunt}%;\
+    /event_fire entered_room
 
 /def -Emap_capturingItemsAndMobs -mregexp -t"^(.*)$" -p(maxpri-1) -F wotmud_t_captureItemOrMob = \
     /let _attrLine=$[encode_attr({P0})]%;\
@@ -128,7 +129,7 @@
 /test wotmud_addKnownMob("A timid fawn is ready to flee.")
 /test wotmud_addKnownMob("A draft horse is here.")
 /test wotmud_addKnownMob("A black stallion prances about.")
-/test wotmud_addKnownMob("")
-/test wotmud_addKnownMob("")
+/test wotmud_addKnownMob("A chicken wanders around here, pecking at the ground.")
+/test wotmud_addKnownMob("A dun mare is here, snorting angrily.")
 /test wotmud_addKnownMob("")
 /test wotmud_addKnownMob("")
