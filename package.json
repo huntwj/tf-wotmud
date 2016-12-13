@@ -1,6 +1,6 @@
 {
   "name": "tf-wotmud",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "TinyFugue macros for WoTMUD (wotmud.org)",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/huntwj/tf-wotmud#readme",
   "dependencies": {
-      "tf-diku": "git://github.com/huntwj/tf-diku.git",
-      "tf-mapper": "git://github.com/huntwj/tf-mapper.git"
+    "tf-diku": "git://github.com/huntwj/tf-diku.git",
+    "tf-mapper": "git://github.com/huntwj/tf-mapper.git"
   }
 }
