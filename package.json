@@ -1,6 +1,6 @@
 {
   "name": "tf-wotmud",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "TinyFugue macros for WoTMUD (wotmud.org)",
   "main": "index.js",
   "scripts": {
