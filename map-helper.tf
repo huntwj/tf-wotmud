@@ -16,6 +16,9 @@
     /let _maxLines=40%;\
     /let _lineNo=1%;\
     /let _roomDescription=%;\
+    /if (map_editMode) \
+        /test redisDel("tempRoom:description")%;\
+    /endif%;\
     /while (_lineNo < _maxLines) \
         /let _line=$(/recall - -%{_lineNo})%;\
         /let _encodedLine=$[encode_attr(_line)]%;\
@@ -23,12 +26,22 @@
         /let _strstr=$[strstr(_encodedLine, "@{Ccyan}")]%;\
         /if (_strstr >= 0) \
             /let _roomName=$[substr(_line, _strstr)]%;\
+            /if (map_editMode) \
+                /test redisSet("currentRoom:name", _roomName)%;\
+                /test redisRename("tempRoom:description", "currentRoom:description")%;\
+            /endif%;\
             /test util_setVar("map.currentRoom.name", _roomName)%;\
             /test util_setVar("map.currentRoom.description", _roomDescription)%;\
             /test map_roomCaptured(_roomName, _roomDescription)%;\
+            /if (map_editMode) \
+                /test map_roomCapturedWithRedis()%;\
+            /endif%;\
             /return%;\
         /else \
             /test _roomDescription := strcat(_line,"\10",_roomDescription)%;\
+            /if (map_editMode) \
+                /test redisLPush("tempRoom:description", _line)%;\
+            /endif%;\
         /endif%;\
     /done%;\
     /echo Room description limit (%{_maxLines}) reached. Giving up on finding a room name.
@@ -42,7 +55,10 @@
 /def -Emap_capturingItemsAndMobs -mregexp -t"^$" -pmaxpri -F wotmud_t_doneDetectingItemsAndMobs = \
     /test map_capturingItemsAndMobs := 0%;\
     /event_fire wot_map_doneDetectingItemsAndMobs %{map_unknownMobCunt}%;\
-    /event_fire entered_room
+    /event_fire entered_room%;\
+    /if (car(getVar("map.moveQueue")) !~ "")\
+        /echo Move queue: $[getVar("map.moveQueue")]%;\
+    /endif
 
 /def -Emap_capturingItemsAndMobs -mregexp -t"^(.*)$" -p(maxpri-1) -F wotmud_t_captureItemOrMob = \
     /let _attrLine=$[encode_attr({P0})]%;\
