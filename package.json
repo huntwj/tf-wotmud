@@ -23,6 +23,6 @@
   "homepage": "https://github.com/huntwj/tf-wotmud#readme",
   "dependencies": {
     "tf-diku": "~1.0.0",
-    "tf-mapper": "~1.0.3"
+    "tf-mapper": "~1.0.5"
   }
 }
