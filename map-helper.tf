@@ -13,6 +13,7 @@
     /test map_capturingItemsAndMobs := 1%;\
     /test map_unknownMobCount := 0%;\
     /test map_leatherleafCount := 0%;\
+    /test map_cuteDeerCount := 0%;\
     /let _maxLines=40%;\
     /let _lineNo=1%;\
     /let _roomDescription=%;\
@@ -80,6 +81,8 @@
         /test ++map_unknownMobCount%;\
     /elseif (_mob =~ textencode("A young leatherleaf begins to thicken with age.") | _mob =~ textencode("A stout young sapling is lying here, mortally wounded.")) \
         /test ++map_leatherleafCount%;\
+    /elseif (_mob =~ textencode("A cute brown deer eyes you nervously.")) \
+        /test ++map_cuteDeerCount%;\
     /else \
 ;        /echo Known.%;\
     /endif
