@@ -4,6 +4,7 @@
 /require tf-wotmud/prompt.tf
 /require tf-wotmud/chat.tf
 /require tf-wotmud/channeling.tf
+/require tf-wotmud/combat.tf
 /require tf-wotmud/score.tf
 /require tf-wotmud/stats.tf
 /require tf-wotmud/inventory.tf
@@ -29,4 +30,7 @@
 
 /def wot = \
     /load tf-wotmud/main.tf
+
+/alias o open %{*}
+/alias c close %{*}
 

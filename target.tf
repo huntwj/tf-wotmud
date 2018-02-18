@@ -44,6 +44,7 @@
 /alias ks ki scorpion
 /alias kv ki vernarsh
 /alias kvi ki vine
+/alias kw ki wolverine
 
 /def key_f2 = k
 

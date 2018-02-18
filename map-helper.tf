@@ -47,15 +47,9 @@
     /done%;\
     /echo Room description limit (%{_maxLines}) reached. Giving up on finding a room name.
 
-/test util_setVar("char.need.food", 1)
-/def tf = \
-    /let _needFood=$[!util_getVar("char.need.food")]%;\
-    /test util_setVar("char.need.food", _needFood)%;\
-    /echo Need food: %_needFood
-
 /def -Emap_capturingItemsAndMobs -mregexp -t"^$" -pmaxpri -F wotmud_t_doneDetectingItemsAndMobs = \
     /test map_capturingItemsAndMobs := 0%;\
-    /event_fire wot_map_doneDetectingItemsAndMobs %{map_unknownMobCunt}%;\
+    /event_fire wot_map_doneDetectingItemsAndMobs %{map_unknownMobCount}%;\
     /event_fire entered_room%;\
     /if (car(getVar("map.moveQueue")) !~ "")\
         /echo Move queue: $[getVar("map.moveQueue")]%;\
@@ -150,5 +144,3 @@
 /test wotmud_addKnownMob("A black stallion prances about.")
 /test wotmud_addKnownMob("A chicken wanders around here, pecking at the ground.")
 /test wotmud_addKnownMob("A dun mare is here, snorting angrily.")
-/test wotmud_addKnownMob("")
-/test wotmud_addKnownMob("")
