@@ -3,7 +3,7 @@
 ;;
 /loaded __tf_wotmud_prompt__
 
-/test wot_health_states := "Healthy|Scratched|Hurt|Wounded|Battered|Beaten|Critical|Incapacitated"
+/test wot_health_states := "Healthy|Scratched|Hurt|Wounded|Battered|Beaten|Critical|Incapacitated|Dead\?"
 /test wot_movement_states := "Full|Fresh|Strong|Tiring|Winded|Weary|Haggard"
 /test wot_spell_states := "Bursting|Full|Strong|Good|Fading|Trickling"
 

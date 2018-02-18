@@ -13,7 +13,7 @@
     /test wot_channeling_embraced := 0%;\
     /send - %{P0}%{PR}
 
-/alias c /wot_channeling_channel %{*}
+/alias ch /wot_channeling_channel %{*}
 /def wot_channeling_channel = \
     /let _weave=%{1}%;\
     /let _rest=%{-1}%;\

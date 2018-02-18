@@ -42,6 +42,8 @@
 /alias kaa ki aiel
 /alias kz ki lizard
 /alias ks ki scorpion
+/alias kv ki vernarsh
+/alias kvi ki vine
 
 /def key_f2 = k
 

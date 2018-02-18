@@ -35,7 +35,7 @@
 
 /alias dl dismount%;alh %{1-1} $[util_getVar("mount")]
 
-/alias bard /wot_mount_bard saddle shoes bridle saddlebag
+/alias bard /wot_mount_bard saddle shoes bridle saddlebag donning
 /def wot_mount_bard = \
     /if ({#}) \
         gc %{1}%;\
