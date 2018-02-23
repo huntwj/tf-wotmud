@@ -12,7 +12,7 @@
 /require tf-wotmud/target.tf
 
 /addworld -Tdiku WoTMUD game.wotmud.org 2224
-;/addworld -Tdiku VM_WoTMUD_VM localhost 2224
+;/addworld -Tdiku Proxy_WoTMUD localhost 5555
 
 /def wot_exp = \
     /load tf-wotmud/exping.tf
