@@ -14,11 +14,6 @@
 /addworld -Tdiku WoTMUD game.wotmud.org 2224
 ;/addworld -Tdiku Proxy_WoTMUD localhost 5555
 
-/def wot_exp = \
-    /load tf-wotmud/exping.tf
-/def wot_stat = \
-    /load tf-wotmud-statting/main.tf
-
 /def reconnect = \
     /if ({#}) \
         /for i 15 1 /repeat -$[i*60] 1 /echo %%i minutes to connect...%;\
@@ -28,6 +23,7 @@
         /repeat -300 1 /echo /connect%;\
     /endif
 
+; TODO: Handle this gracefully with modules
 /def wot = \
     /load tf-wotmud/main.tf
 

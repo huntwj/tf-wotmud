@@ -1,8 +1,7 @@
 ;
 ; WoTMUD Chat Helpers.
 ;
-
-
+/undef key_f1
 /def key_f1 = /toggleChat
 
 /def toggleChat = \
