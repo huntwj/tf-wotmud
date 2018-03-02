@@ -11,15 +11,18 @@
 /require tf-wotmud/mount.tf
 /require tf-wotmud/target.tf
 
-/addworld -Tdiku WoTMUD game.wotmud.org 2224
-;/addworld -Tdiku Proxy_WoTMUD localhost 5555
+/if (TF_WOTMUD_WORLD =~ "") \
+    /addworld -Tdiku WoTMUD game.wotmud.org 2224%;\
+/else \
+    /eval /addworld -Tdiku %{TF_WOTMUD_WORLD}%;\
+/endif
 
 /def reconnect = \
     /if ({#}) \
-        /for i 15 1 /repeat -$[i*60] 1 /echo %%i minutes to connect...%;\
+        /for i 15 1 /repeat -$[i*60] 1 /echo %%{i} minutes to connect...%;\
         /repeat -900 1 /echo /connect%;\
     /else \
-        /for i 5 1 /repeat -$[i*60] 1 /echo %%i minutes to connect...%;\
+        /for i 5 1 /repeat -$[i*60] 1 /echo %%{i} minutes to connect...%;\
         /repeat -300 1 /echo /connect%;\
     /endif
 
