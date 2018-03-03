@@ -29,8 +29,6 @@
     /let _level=$[util_getVar("char.level")]%;\
     /if (_level <= 3) \
         /let _prefix=%{_level}%;\
-;        /test _prefix := strcat(_level, " ", _prefix)%;\
-;        /test _prefix := _level%;\
     /else \
         /let _prefix=>%;\
     /endif%;\

@@ -53,7 +53,6 @@
     /if (util_getVar("char.level") > 5) \
         ki cat%;\
     /else \
-;        ki 2.leatherleaf%;\
         ki cute%;\
     /endif
 

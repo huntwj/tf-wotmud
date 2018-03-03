@@ -47,7 +47,7 @@
     /done%;\
     /echo Room description limit (%{_maxLines}) reached. Giving up on finding a room name.
 
-/def -Emap_capturingItemsAndMobs -mregexp -t"^$" -pmaxpri -F wotmud_t_doneDetectingItemsAndMobs = \
+/def -Emap_capturingItemsAndMobs -mregexp -t"^$" -'pmaxpri' -F wotmud_t_doneDetectingItemsAndMobs = \
     /test map_capturingItemsAndMobs := 0%;\
     /event_fire wot_map_doneDetectingItemsAndMobs %{map_unknownMobCount}%;\
     /event_fire entered_room%;\

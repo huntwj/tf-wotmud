@@ -62,7 +62,8 @@
         /test _container := {1}%;\
     /endif%;\
     remove %{_container}%;\
-    /repeat -S 2 drink %{_container}%;\
+    /repeat -S 2 \
+        drink %{_container}%;\
     wear %{_container}
 
 /declareVar inv.weapon staff
@@ -128,7 +129,7 @@
     /wot_inv_wieldUtility%;\
     /let _start=%{1-1}%;\
     /let _end=%{2-%{_start}}%;\
-    /for i %{_start} %{_end} scalp %%i.corpse%;\
+    /for i %{_start} %{_end} scalp %%{i}.corpse%;\
     /wot_inv_removeUtility%;\
     /wot_inv_wieldPrimary%;\
     /let _count=$[_end-_start+1]%;\
@@ -139,7 +140,4 @@
     /wot_inv_wieldUtility%;\
     /repeat -S %{1-4} butcher %{2-1}.corpse%;\
     /wot_inv_removeUtility%;\
-    /wot_inv_wieldPrimary%;\
-;    pc all.meat%;\
-    /test 1
-
+    /wot_inv_wieldPrimary
